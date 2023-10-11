@@ -1,0 +1,11 @@
+{
+    "NinkyProxyOFTV2" : {
+        "NINKY_TOKEN_ADDRESS" : "0x782eC8Ce335e190bd98E7ca00534d0f6CDDf877F",
+        "SHARED_DECIMAL" : 6
+    },
+    "NinkyOFTV2" : {
+        "NAME" : "ninky",
+        "SYMBOL" : "NINKY",
+        "SHARED_DECIMAL" : 6
+    }   
+}
