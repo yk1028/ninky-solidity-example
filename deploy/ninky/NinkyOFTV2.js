@@ -1,5 +1,5 @@
-const LZ_ENDPOINTS = require("../constants/layerzeroEndpoints.json")
-const CONFIG = require("./config.json")
+const LZ_ENDPOINTS = require("../../constants/layerzeroEndpoints.json")
+const CONFIG = require("../../ninky/config.json")
 
 module.exports = async function ({ deployments, getNamedAccounts }) {
     const { deploy } = deployments
@@ -8,7 +8,7 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
 
     const name = CONFIG.NinkyOFTV2.NAME
     const symbol = CONFIG.NinkyOFTV2.SYMBOL
-    const sharedDecimal = CONFIG.NinkyOFTV2.sharedDecimal
+    const sharedDecimal = CONFIG.NinkyOFTV2.SHARED_DECIMAL
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
 
     console.log(`[${hre.network.name}] OFT Name: ${name}`)

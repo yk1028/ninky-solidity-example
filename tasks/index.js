@@ -178,3 +178,14 @@ task("isStoredPayload", "check if stored payload", require("./isStoredPayload"))
     .addParam("desAddress", "")
     .addOptionalParam("payload", "")
     .addOptionalParam("clear", "", false, types.boolean)
+
+
+task("sendFromProxyOFTV2", "send layerzero asset", require('./ninky/sendFromProxyOFTV2'))
+    .addParam("targetNetwork", "the destination chain")
+    .addParam("toAddr", "to address")
+    .addParam("amount", "amount")
+
+    task("sendFromOFTV2", "send layerzero asset", require('./ninky/sendFromOFTV2'))
+    .addParam("targetNetwork", "the destination chain")
+    .addParam("toAddr", "to address")
+    .addParam("amount", "amount")

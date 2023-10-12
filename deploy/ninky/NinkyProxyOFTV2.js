@@ -1,12 +1,12 @@
 const LZ_ENDPOINTS = require("../../constants/layerzeroEndpoints.json")
-const CONFIG = require("./config.json")
+const CONFIG = require("../../ninky/config.json")
 
 module.exports = async function ({ deployments, getNamedAccounts }) {
     const { deploy } = deployments
     const { deployer } = await getNamedAccounts()
     console.log(`>>> your address: ${deployer}`)
 
-    const tokenAddress = CONFIG.NinkyProxyOFTV2.NINKY_TOKEN_ADDRESS
+    const tokenAddress = CONFIG.NINKY_TOKEN_ADDR
     const sharedDecimal = CONFIG.NinkyProxyOFTV2.SHARED_DECIMAL
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
     
