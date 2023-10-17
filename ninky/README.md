@@ -7,11 +7,12 @@ yarn install
 ```
 
 ## Configuration
-`hardhat.config.js`, `constants`, `ninky/config`에 xpla 정보와 account 등록
+`hardhat.config.js`, `constants`, `ninky/config`에 chain 정보와 account 등록
 - [`hardhat.config.js`](/hardhat.config.js)
   - rpc url
   - [layerzero chainId](https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids)
   - xpla, bsc deploy account (required private key)
+    - `.env` 파일을 생성하여 private key 등록 필요
   - example (bsc-testnet, mumbai)
     ```
     networks: {
@@ -19,7 +20,7 @@ yarn install
       'bsc-testnet': {
         url: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         chainId: 97, // layerzero chain id
-        accounts: [process.env.BSC_PRIVKEY], // use dotenv
+        accounts: [process.env.BSC_PRIVKEY], // use dotenv 
       },
       mumbai: {
         url: "https://rpc-mumbai.maticvigil.com/",
