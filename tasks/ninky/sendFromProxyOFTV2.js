@@ -1,5 +1,6 @@
 const CHAIN_IDS = require("../../constants/chainIds.json")
 const NINKY_CONFIG = require("../../ninky/config.json")
+const SEND_CONFIG = require("../../ninky/send_config.json")
 const ABI = require("./abi.json")
 
 const approve = async (owner, proxyOFTV2, amount) => {
@@ -16,7 +17,7 @@ module.exports = async function (taskArgs, hre) {
     const signers = await ethers.getSigners()
     const owner = signers[0]
 
-    const proxyOFTV2 = await ethers.getContractAt("ProxyOFTV2", "0x200036829cDAB10bE56B82a24078E14CC5439a1a", owner)
+    const proxyOFTV2 = await ethers.getContractAt("ProxyOFTV2", SEND_CONFIG.PROXYOFTV2_ADDR, owner)
     const dstChainId = CHAIN_IDS[taskArgs.targetNetwork]
 
     const toAddr = taskArgs.toAddr

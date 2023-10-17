@@ -4,7 +4,7 @@ module.exports = async function (taskArgs, hre) {
     const signers = await ethers.getSigners()
     const owner = signers[0]
 
-    const OFTV2 = await ethers.getContract("OFTV2")
+    const OFTV2 = await ethers.getContractAt("OFTV2", SEND_CONFIG.OFTV2_ADDR, owner)
     const dstChainId = CHAIN_IDS[taskArgs.targetNetwork]
 
     const toAddr = taskArgs.toAddr

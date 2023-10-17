@@ -66,17 +66,27 @@
  - 기존 setMinDstGas task를 사용하여 min gas 설정
  - [`tasks/setMinDstGas.js`](/tasks/setMinDstGas.js)
  - `--packet-type 0`: sendFrom method에 대한 설정을 의미
- - `--min-gas 200,000`: layerzero에서 기본적으로 사용하는 값으로 설정
+ - `--min-gas 100,000`: layerzero에서 기본적으로 사용하는 값으로 설정 (arbitrum을 제외한 체인에서는 100k면 충분하다는 layerzero측 답변)
   
 1. **BSC -> XPLA**
     ```shell
-    npx hardhat --network bsc setMinDstGas --target-network xpla --contract ProxyOFTV2 --packet-type 0 --min-gas 200000
+    npx hardhat --network bsc setMinDstGas --target-network xpla --contract ProxyOFTV2 --packet-type 0 --min-gas 100000
     ```
 
 2. **XPLA -> BSC**
     ```shell
-    npx hardhat --network xpla setMinDstGas --target-network bsc --contract OFTV2 --packet-type 0 --min-gas 200000
+    npx hardhat --network xpla setMinDstGas --target-network bsc --contract OFTV2 --packet-type 0 --min-gas 100000
     ```
+
+### send Configuration
+- 위에서 생성한 ProxyOFTV2,OFTV2 contract 주소를 [send_config.json](/ninky/send_config.json)에 지정
+- example
+  ``` json
+  {
+    "PROXYOFTV2_ADDR" : "0x200036829cDAB10bE56B82a24078E14CC5439a1a",
+    "OFTV2_ADDR" : "0x200036829cDAB10bE56B82a24078E14CC5439a1a"
+  }
+  ```
 
 ### sendFrom
 - 자산 전송 tasks
