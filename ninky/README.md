@@ -24,7 +24,7 @@
     ```
 - [`constants`](/constants)
   - `chainIds.json` : [layerzero chainId](https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids)
-  - `layerzeroEndpoints.json` : [Endpoint contract address](https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids)
+  - `layerzeroEndpoints.json` : [endpoint contract address](https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids)
 - [`ninky/config.json`](/ninky/config.json)
   - NINKY ERC20 token adreess (bnb)
   - NinkyProxyOFTV2 (bnb)
