@@ -30,10 +30,10 @@ yarn install
       ...
     }
     ```
-- [`constants`](/constants)
+- [`/constants`](/constants)
   - `chainIds.json` : [layerzero chainId](https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids)
   - `layerzeroEndpoints.json` : [endpoint contract address](https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids)
-- [`ninky/config.json`](/ninky/config.json)
+- [`/ninky/config.json`](/ninky/config.json)
   - NINKY ERC20 token adreess (bnb)
   - NinkyProxyOFTV2 (bnb)
     - shared decimal
@@ -45,14 +45,14 @@ yarn install
 ### XPLA - BSC contract deploy
 1. **[BSC] ProxyOFTV2 deploy**
      - 기존 ERC20을 layerzero를 통해 전송 가능하도록 해주는 ProxyOFTV2 배포
-     - [`deploy/ninky/NinkyProxyOFTV2.js`](/deploy/ninky/NinkyProxyOFTV2.js)
+     - [`/deploy/ninky/NinkyProxyOFTV2.js`](/deploy/ninky/NinkyProxyOFTV2.js)
     ``` shell
     npx hardhat --network bsc deploy --tags NinkyProxyOFTV2
     ```
 
 2. **[XPLA] OFTV2 deploy**
      - BSC에서 proxyOFTV2를 통해 넘어와 Xpla에서 사용될 OFTV2 token 형태
-     - [`deploy/ninky/NinkyOFTV2.js`](/deploy/ninky/NinkyOFTV2.js)
+     - [`/deploy/ninky/NinkyOFTV2.js`](/deploy/ninky/NinkyOFTV2.js)
     ``` shell
     npx hardhat --network xpla deploy --tags NinkyOFTV2
     ```
@@ -60,7 +60,7 @@ yarn install
 ## Tasks
 ### setTustedRemote
 - 기존 setTrustedRemote task를 사용하여 contract간 신뢰 관계 설정
-- [`tasks/setTrustedRemote.js`](/tasks/setTrustedRemote.js)
+- [`/tasks/setTrustedRemote.js`](/tasks/setTrustedRemote.js)
 1. **XPLA -> BSC**
     ``` shell
     npx hardhat --network xpla setTrustedRemote --target-network bsc --local-contract OFTV2 --remote-contract ProxyOFTV2
@@ -72,7 +72,7 @@ yarn install
 
 ### setMinDstGas
  - 기존 setMinDstGas task를 사용하여 min gas 설정
- - [`tasks/setMinDstGas.js`](/tasks/setMinDstGas.js)
+ - [`/tasks/setMinDstGas.js`](/tasks/setMinDstGas.js)
  - `--packet-type 0`: sendFrom method에 대한 설정을 의미
  - `--min-gas 100,000`: layerzero에서 기본적으로 사용하는 값으로 설정 (arbitrum을 제외한 체인에서는 100k면 충분하다는 layerzero측 답변)
   
@@ -98,8 +98,8 @@ yarn install
 
 ### sendFrom
 - 자산 전송 tasks
-- [`task/ninky/sendFromProxyOFTV2.js`](/task/ninky/sendFromProxyOFTV2.js)
-- [`task/ninky/sendFromOFTV2.js`](/task/ninky/sendFromOFTV2.js)
+- [`/tasks/ninky/sendFromProxyOFTV2.js`](/tasks/ninky/sendFromProxyOFTV2.js)
+- [`/tasks/ninky/sendFromOFTV2.js`](/tasks/ninky/sendFromOFTV2.js)
 1. **BNB ProxyOFTV2 -> XPLA OFTV2**
    - `./config.json`에 BSC의 NinkY ERC20 token address 등록 필요
    - **[bsc -> xpla]** `hardhat.config.js`에 등록된 account[0]에서 `to address`에게 `amount`만큼 전송
