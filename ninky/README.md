@@ -3,7 +3,7 @@
 `hardhat.config.js`, `constants`, `ninky/config`에 xpla 정보와 account 등록
 - [`hardhat.config.js`](/hardhat.config.js)
   - rpc url
-  - chainId
+  - [layerzero chainId](https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids)
   - xpla, bsc deploy account (required private key)
   - example
     ```
