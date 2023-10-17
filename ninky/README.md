@@ -8,7 +8,7 @@
   - example
     ```
     networks: {
-      ...
+      ..
       'bsc-testnet': {
         url: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         chainId: 97, // layerzero chain id
@@ -68,12 +68,12 @@
  - `--packet-type 0`: sendFrom method에 대한 설정을 의미
  - `--min-gas 200,000`: layerzero에서 기본적으로 사용하는 값으로 설정
   
-1. **BSC**
+1. **BSC -> XPLA**
     ```shell
     npx hardhat --network bsc setMinDstGas --target-network xpla --contract ProxyOFTV2 --packet-type 0 --min-gas 200000
     ```
 
-2. **XPLA**
+2. **XPLA -> BSC**
     ```shell
     npx hardhat --network xpla setMinDstGas --target-network bsc --contract OFTV2 --packet-type 0 --min-gas 200000
     ```

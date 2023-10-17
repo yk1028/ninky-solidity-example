@@ -24,7 +24,7 @@ module.exports = async function (taskArgs, hre) {
     const amount = taskArgs.amount
 
     // estimate fee
-    const defaultAdapterParams = ethers.utils.solidityPack(["uint16", "uint256"], [1, 200000])
+    const defaultAdapterParams = ethers.utils.solidityPack(["uint16", "uint256"], [1, 100000])
     const fee = await proxyOFTV2.estimateSendFee(dstChainId, toAddressBytes, amount, false, defaultAdapterParams)
     console.log(`fees: ${fee[0]}`)
 
