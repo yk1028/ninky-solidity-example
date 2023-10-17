@@ -1,11 +1,18 @@
 # NINKY LayerZero ProxyOFTV2, OFTV2
+| 해당 문서는 bsc의 ERC20을 xpla로 옮기는 상황에 해당하는 문서입니다. 다른 chain에서 테스트하기 위해서는 수정이 필요합니다.
+
+## Install
+```shell
+yarn install
+```
+
 ## Configuration
 `hardhat.config.js`, `constants`, `ninky/config`에 xpla 정보와 account 등록
 - [`hardhat.config.js`](/hardhat.config.js)
   - rpc url
   - [layerzero chainId](https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids)
   - xpla, bsc deploy account (required private key)
-  - example
+  - example (bsc-testnet, mumbai)
     ```
     networks: {
       ..
