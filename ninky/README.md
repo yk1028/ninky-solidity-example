@@ -1,8 +1,14 @@
 # NINKY LayerZero ProxyOFTV2, OFTV2
 | 해당 문서는 bsc의 ERC20을 xpla로 옮기는 상황에 해당하는 문서입니다. 다른 chain에서 테스트하기 위해서는 수정이 필요합니다.
 
+## Prerequisites
+- [hardhat](https://hardhat.org/hardhat-runner/docs/getting-started)
+- [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
+
 ## Install
 ```shell
+git clone https://github.com/yk1028/ninky-solidity-example
+cd ninky-solidity-example
 yarn install
 ```
 
@@ -13,10 +19,12 @@ yarn install
   - [layerzero chainId](https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids)
   - xpla, bsc deploy account (required private key)
     - `.env` 파일을 생성하여 private key 등록 필요
+  - 아래의 모든 tx는 여기에서 등록한 chain별 private key로 전송
   - example (bsc-testnet, mumbai)
     ```
+    ...
     networks: {
-      ..
+      ...
       'bsc-testnet': {
         url: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         chainId: 97, // layerzero chain id
@@ -29,6 +37,7 @@ yarn install
       },
       ...
     }
+    ...
     ```
 - [`/constants`](/constants)
   - `chainIds.json` : [layerzero chainId](https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids)
@@ -51,11 +60,13 @@ yarn install
     ```
 
 2. **[XPLA] OFTV2 deploy**
-     - BSC에서 proxyOFTV2를 통해 넘어와 Xpla에서 사용될 OFTV2 token 형태
+     - BSC에서 proxyOFTV2를 통해 넘어와 Xpla에서 사용될 OFTV2 token 배포
      - [`/deploy/ninky/NinkyOFTV2.js`](/deploy/ninky/NinkyOFTV2.js)
     ``` shell
     npx hardhat --network xpla deploy --tags NinkyOFTV2
     ```
+
+- **주의**: contract를 재배포하는 경우 /deployments에서 해당 contract의 json file을 삭제해야 reuse하지 않고 새로운 contract가 배포된다.
    
 ## Tasks
 ### setTustedRemote
@@ -87,7 +98,7 @@ yarn install
     ```
 
 ### send Configuration
-- 위에서 생성한 ProxyOFTV2,OFTV2 contract 주소를 [send_config.json](/ninky/send_config.json)에 지정
+- 위에서 생성한 ProxyOFTV2, OFTV2 contract 주소를 [send_config.json](/ninky/send_config.json)에 지정
 - example
   ``` json
   {
@@ -100,6 +111,7 @@ yarn install
 - 자산 전송 tasks
 - [`/tasks/ninky/sendFromProxyOFTV2.js`](/tasks/ninky/sendFromProxyOFTV2.js)
 - [`/tasks/ninky/sendFromOFTV2.js`](/tasks/ninky/sendFromOFTV2.js)
+- amount는 shared decimal 기준에 맞춰 보내야 한다. local decimal이 18이고 shared decimal이 6인 경우 최소 1000000000000(12자리, 0.000001) 이상 필요
 1. **BNB ProxyOFTV2 -> XPLA OFTV2**
    - `./config.json`에 BSC의 NinkY ERC20 token address 등록 필요
    - **[bsc -> xpla]** `hardhat.config.js`에 등록된 account[0]에서 `to address`에게 `amount`만큼 전송
