@@ -9,6 +9,7 @@
 ```shell
 git clone https://github.com/yk1028/ninky-solidity-example
 cd ninky-solidity-example
+npm i
 yarn install
 ```
 
