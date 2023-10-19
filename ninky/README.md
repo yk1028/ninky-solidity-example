@@ -16,7 +16,7 @@ npm i
 `hardhat.config.js`, `constants`, `ninky/config`에 chain 정보와 account 등록
 - [`hardhat.config.js`](/hardhat.config.js)
   - rpc url
-  - [layerzero chainId](https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids)
+  - chain id
   - xpla, bsc deploy account (required private key)
     - `.env` 파일을 생성하여 private key 등록 필요
   - 아래의 모든 tx는 여기에서 등록한 chain별 private key로 전송
@@ -27,12 +27,12 @@ npm i
       ...
       'bsc-testnet': {
         url: "https://data-seed-prebsc-1-s1.binance.org:8545/",
-        chainId: 97, // layerzero chain id
+        chainId: 97,
         accounts: [process.env.BSC_PRIVKEY], // use dotenv 
       },
       mumbai: {
         url: "https://rpc-mumbai.maticvigil.com/",
-        chainId: 80001, // layerzero chain id
+        chainId: 80001,
         accounts: [process.env.MUMBAI_PRIVKEY], // use dotenv
       },
       ...
