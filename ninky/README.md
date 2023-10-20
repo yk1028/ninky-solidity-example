@@ -1,10 +1,6 @@
 # NINKY LayerZero ProxyOFTV2, OFTV2
 | 해당 문서는 bsc의 ERC20을 xpla로 옮기는 상황에 해당하는 문서입니다. 다른 chain에서 테스트하기 위해서는 수정이 필요합니다.
 
-## Prerequisites
-- [hardhat](https://hardhat.org/hardhat-runner/docs/getting-started)
-- [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
-
 ## Install
 ```shell
 git clone https://github.com/yk1028/ninky-solidity-example
