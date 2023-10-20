@@ -111,7 +111,10 @@ npm i
 - 자산 전송 tasks
 - [`/tasks/ninky/sendFromProxyOFTV2.js`](/tasks/ninky/sendFromProxyOFTV2.js)
 - [`/tasks/ninky/sendFromOFTV2.js`](/tasks/ninky/sendFromOFTV2.js)
-- amount는 shared decimal 기준에 맞춰 보내야 한다. local decimal이 18이고 shared decimal이 6인 경우 최소 1000000000000(12자리, 0.000001) 이상 필요
+- amount는 ERC20 token local decimal 기준으로 shared decimal 맞춰 보내야 한다.
+  - amount exmaple
+    - local decimal이 18이고, shared decimal이 6인 경우 amount의 최소값은 1000000000000 (12자리, 0.000001)
+    - local decimal이 6이고, shared decimal이 6인 경우 amount의 최소값은 1 (0.000001)
 1. **BNB ProxyOFTV2 -> XPLA OFTV2**
    - `./config.json`에 BSC의 NinkY ERC20 token address 등록 필요
    - **[bsc -> xpla]** `hardhat.config.js`에 등록된 account[0]에서 `to address`에게 `amount`만큼 전송
