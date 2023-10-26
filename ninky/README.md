@@ -15,8 +15,12 @@ npm i
   - chain id
   - xpla, bsc deploy account (required private key)
     - `.env` 파일을 생성하여 private key 등록 필요
+      ```
+      BSC_PRIVKEY="{your bsc private key}"
+      CUBE_PRIVKEY="{your cube private key}"
+      ```
   - 아래의 모든 tx는 여기에서 등록한 chain별 private key로 전송
-  - example (bsc-testnet, mumbai)
+  - example (bsc-testnet, cube)
     ```
     ...
     networks: {
@@ -26,10 +30,10 @@ npm i
         chainId: 97,
         accounts: [process.env.BSC_PRIVKEY], // use dotenv 
       },
-      mumbai: {
-        url: "https://rpc-mumbai.maticvigil.com/",
-        chainId: 80001,
-        accounts: [process.env.MUMBAI_PRIVKEY], // use dotenv
+      cube: {
+        url: "https://cube-evm-rpc.xpla.dev/",
+        chainId: 47,
+        accounts: [process.env.CUBE_PRIVKEY], // use dotenv
       },
       ...
     }
@@ -46,6 +50,20 @@ npm i
     - name
     - symbol
     - shared decimal
+  - example
+    ``` json
+    {
+        "NINKY_TOKEN_ADDR" : "0x1E41d27265A486397BA2FD85dDdEC08C81B51F9F",
+        "NinkyProxyOFTV2" : {
+            "SHARED_DECIMAL" : 6
+        },
+        "NinkyOFTV2" : {
+            "NAME" : "xpla layerzero shared decimal 6 test token",
+            "SYMBOL" : "xLZST",
+            "SHARED_DECIMAL" : 6
+        }   
+    }
+    ```    
 ## Deploy
 ### XPLA - BSC contract deploy
 1. **[BSC] ProxyOFTV2 deploy**
